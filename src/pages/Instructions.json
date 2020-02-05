@@ -1,0 +1,389 @@
+{
+  
+  "topics":["Initialization", "User Profile", "Events", "Actions", "Visual Inbox", "User Badges", "GDPR", "Push Notifications", "Dynamic Splash", "GEO Fence", "Rewards"],
+  "topicColors":["#86E3CEFF","#8BB6C6FF","#E7BB8FFF","#FA897CFF","#CCACDAFF","#ABB6C9FF","#C2C4B6FF","#9CC3E4FF","#9ED3DBFF","#B5C6C0FF","#E19A45FF"],
+  "init": [
+    {
+      "header": "Where to Initialize Upshot in iOS?",
+      "message": "Initialize Upshot in Appdelegate class in two places \n 1. didFinishLaunchingWithOptions \n 2. applicationWillEnterForeground"
+    },
+    {
+      "header": "How to initialize Upshot?",
+      "message": "Upshot can be initialized in two ways: \n 1. Using Configuration file.\n 2. Initialization properties explicitly."
+    },
+    {
+      "header": "Authentication Delegate:",
+      "message": "For every initialization will get status(success / failure) and error message (only failure) through brandKinesisAuthentication delegate method."
+    },
+    {
+      "header": "Check Installation",
+      "message": "Run Application and you can check the users in dashboard if Initialization is successful under Live Events Section."
+    },
+    {
+      "header": "When to Terminate Upshot?",
+      "message": "When you call terminate to Upshot which tells that the current session is closed.\n 1.applicationDidEnterBackground"
+    },
+    {
+      "header": "For more Info",
+      "message": "Please refer documentation"
+    }
+  ],
+  "profile": [
+    {
+      "header": "When to send user details to Upshot?",
+      "message": "When the application receives any user information (through registration process or other mechanisms), those values must be sent to the Upshot."
+    },
+    {
+      "header": "Attributes",
+      "message": "Upshot defines some standard attributes like (email, firstName, phone, appuid, facebookId ..etc) for each user and also allows you to define application specific custom attributes like (Score, Level in the game, UserType) as part of the user profile."
+    },
+    {
+      "header": "Rules",
+      "message": "SDK will discard any key which doesn't follow the naming convention(refer documentation)."
+    },
+    {
+      "header": "Check UserDetails in dashboard",
+      "message": "You can check userprofile data which you are sending through SDK in Dashboard under Live Events section."
+    },
+    {
+      "header": "User Logout",
+      "message": "When ever user logs out app should inform Upshot that the user has logged out."
+    },
+    {
+      "header": "Example",
+      "message": "For reference in the given project integrated user profile on Button tap of Login, Update Profile and Logout"
+    }
+  ],
+  "Events": [
+    {
+      "header": "What is an event?",
+      "message": "Any action performed by the user in the application that is of interest for analytics and improving the app/user experience is an event"
+    },
+    {
+      "header": "Dispatch Frequency",
+      "message": "Events are dispatched to the server within a time interval of 10secs to 120secs. You can choose the frequency at which events should be dispatched. By default, events are dispatched to the server once in every 60 secs"
+    },
+    {
+      "header": "Screen View Events",
+      "message": "Also referred as Page Views, Create this event when ever user visits the screen prefer at ViewDidAppear(for more info please refer documentation)."
+    },
+    {
+      "header": "Custom Events:",
+      "message": "Any event that could not be accommodated through predefined events, can be created through Custom Events.(for more info please refer documentation)"
+    },
+    {
+      "header": "Custom Events Types based on Time:",
+      "message": "Custom events are classified in to two types based on time 1. Timed 2.Non-Timed"
+    },
+    {
+      "header": "Timed Events:",
+      "message": "An event where the end time is different from the start time is a timed event"
+    },
+    {
+      "header": "Timed Events Example:",
+      "message": "A game level takes 30 seconds to finish. So a “game level played” event starts at X and ends at Y. There's a time component associated with the event here, hence it is considered as a timed event"
+    },
+    {
+      "header": "Non Timed Events:",
+      "message": "An event where the start time and the end time are the same is a non-timed event"
+    },
+    {
+      "header": "Non Timed Events Example:",
+      "message": "Say a button tap. It does not matter how long the button was pressed for. This becomes a non-timed event, where you are only interested in the fact that the user tapped a button, time factor is not crucial"
+    },
+    {
+      "header": "Note 1",
+      "message": "For every successful creation of event will return an eventId, in case of fail to create event return nil"
+    },
+    {
+      "header": "Note 2",
+      "message": "Every event is associated with an eventID. All the information relating to an event should be strictly mapped to its own eventID. Incase of a timed event, the event should be closed with the same EventId with which the event had started. Any data needed is set while closing the event using the same EventId. Data set on the event will be overwritten each time it is updated."
+    },
+    {
+      "header": "Note 3",
+      "message": "All Timed events are automatically closed when a session is terminated"
+    },
+    {
+      "header": "Check Events in dashboard",
+      "message": "You can check Custom and PageView events which you are sending through SDK in Dashboard under Live Events section."
+    }
+  ],
+  "actions": [
+    {
+      "header": "What are activities / actions?",
+      "message": "An activity is a tool that Upshot offers to a publisher to interact with the user. For e.g. Push Notifications, Surveys, Rating requests, Opinion Polls, Ads, In-App Messages, Tutorials etc.."
+    },
+    {
+      "header": "How to request an activity?",
+      "message": "Activities are requested by tag and type (Please refer documentation for more info)"
+    },
+    {
+      "header": "Activity Delegates",
+      "message": "Upshot informs the application while presenting and dismissing any Activity pop-ups in it through delegates"
+    },
+    {
+      "header": "Note 1:",
+      "message": "Note: Upshot Activities are shown in a new window but not application keyWindow. When the activity is dismissed, SDK will remove the Activity window from the application."
+    },
+    {
+      "header": "Note 2",
+      "message": "Note: Activities can be customizable, for this we need to set BKUIPreferencesDelegate delegate to customize activities"
+    },
+    {
+      "header": "For more info",
+      "message": "Please refer documentation"
+    }
+  ],
+  "inbox":[{
+      "header": "When to send user details to Upshot?",
+      "message": "When the application receives any user information (through registration process or other mechanisms), those values must be sent to the Upshot."
+    }],
+    "badges":[{
+      "header": "When to send user details to Upshot?",
+      "message": "When the application receives any user information (through registration process or other mechanisms), those values must be sent to the Upshot."
+    }],
+  "gdpr": [
+    {
+      "header": "When to send user details to Upshot?",
+      "message": "When the application receives any user information (through registration process or other mechanisms), those values must be sent to the Upshot."
+    },
+    {
+      "header": "Attributes",
+      "message": "Upshot defines some standard attributes like (email, firstName, phone, appuid, facebookId ..etc) for each user and also allows you to define application specific custom attributes like (Score, Level in the game, UserType) as part of the user profile."
+    },
+    {
+      "header": "Rules",
+      "message": "SDK will discard any key which doesn't follow the naming convention(refer documentation)."
+    },
+    {
+      "header": "Check UserDetails in dashboard",
+      "message": "You can check userprofile data which you are sending through SDK in Dashboard under Live Events section."
+    },
+    {
+      "header": "User Logout",
+      "message": "When ever user logs out app should inform Upshot that the user has logged out."
+    }
+  ],
+  "push": [
+    {
+      "header": "When to send user details to Upshot?",
+      "message": "When the application receives any user information (through registration process or other mechanisms), those values must be sent to the Upshot."
+    },
+    {
+      "header": "Attributes",
+      "message": "Upshot defines some standard attributes like (email, firstName, phone, appuid, facebookId ..etc) for each user and also allows you to define application specific custom attributes like (Score, Level in the game, UserType) as part of the user profile."
+    },
+    {
+      "header": "Rules",
+      "message": "SDK will discard any key which doesn't follow the naming convention(refer documentation)."
+    },
+    {
+      "header": "Check UserDetails in dashboard",
+      "message": "You can check userprofile data which you are sending through SDK in Dashboard under Live Events section."
+    },
+    {
+      "header": "User Logout",
+      "message": "When ever user logs out app should inform Upshot that the user has logged out."
+    }
+  ],
+  "splash": [
+    {
+      "header": "Splash Screen",
+      "message": "The primary purpose of splash screen is to let users know that your app is loading and give them an introductory screen showing your brand."
+    },
+    {
+      "header": "Dynamic Splash:",
+      "message": "Dynamic Splash helps you to promote your application, promote during seasonal offers, other marketing activities etc using your brand name. For example, a summer sale could vary from location to location for which customized dynamic splash can be configured based on the location "
+    }
+  ],
+  "geofence": [
+    {
+      "header": "When to send user details to Upshot?",
+      "message": "When the application receives any user information (through registration process or other mechanisms), those values must be sent to the Upshot."
+    },
+    {
+      "header": "Attributes",
+      "message": "Upshot defines some standard attributes like (email, firstName, phone, appuid, facebookId ..etc) for each user and also allows you to define application specific custom attributes like (Score, Level in the game, UserType) as part of the user profile."
+    },
+    {
+      "header": "Rules",
+      "message": "SDK will discard any key which doesn't follow the naming convention(refer documentation)."
+    },
+    {
+      "header": "Check UserDetails in dashboard",
+      "message": "You can check userprofile data which you are sending through SDK in Dashboard under Live Events section."
+    },
+    {
+      "header": "User Logout",
+      "message": "When ever user logs out app should inform Upshot that the user has logged out."
+    }
+  ],
+ 
+  "rewards": [
+    {
+      "header": "Rewards",
+      "message": "Upshot’s rewards module helps to reward users based on the actions/activities performed by them on a mobile app or a website. This module allows to boost retention and helps increase user’s loyalty towards applications."
+    },
+    {
+      "header": "Rewards Status",
+      "message": "Reward Status API will provide the list of active reward programs achieved by the user"
+    },
+    {
+      "header": "Rewards History",
+      "message": "Reward History API will provide the transaction history based on programId and historyType when passed as arguments provided for the request"
+    },
+    {
+      "header": "Rewards Earning Rules",
+      "message": "Reward Rules API will provide the list of rules with the name, description and tag associated for a given programId."
+    },
+    {
+      "header": "Rewards Redeem",
+      "message": "You can request Upshot to redeem rewards using programId, transactionValue, RedeemValue and tag for the programRule as attributes for Redeem API. Upshot will check the balance for that user with the redeemValue and provide the status of the request."
+    },
+    {
+      "header": "For more info",
+      "message": "Please refer documentation"
+    }
+  ],
+  "BadgesData":
+    {
+      "active_list": [
+              {
+              "achivedTime": 1493892162263,
+              "activityName": "DAY 05 ",
+              "badge": "590c28142b2f15cf1b7b23d3590c39c12b2f15a7517b23c9",
+              "badgeDesc": "YOU HAVE WON A FREE PIZZA FROM US :)",
+              "badgeImage": "<UIImage: 0x1750b2a0>, {128, 128}",
+              "campaignName": "DAY 05 - 2",
+              "status": 1,
+              "tags": [
+              "Welcome"
+              ],
+              "title": "CONGRATULATIONS!!!"
+              },
+              {
+              "achivedTime": 1493892162263,
+              "activityName": "DAY 06 ",
+              "badge": "590c28142b2f15cf1b7b23d3590c39c12b2f15a7517b23c9",
+              "badgeDesc": "YOU HAVE WON A FREE Burger FROM US :)",
+              "badgeImage": "<UIImage: 0x1750b2a0>, {128, 128}",
+              "campaignName": "DAY 05 - 2",
+              "status": 1,
+              "tags": [
+              "Welcome"
+              ],
+              "title": "null"
+              }
+              
+        ],
+        "inactive_list": [
+        {
+        "activityName": "badge 6",
+        "badge": "590c397c2b2f15a9517b23c6590c3e5a2b2f152b5a7b23cc",
+        "badgeDesc": "You have received two free movie tickets! To accept them, please click the okay button.",
+        "badgeImage": "<UIImage: 0x1761d450>, {128, 128}",
+        "campaignName": "Badge 6",
+        "status": 2,
+        "tags": [
+        "Welcome"
+        ],
+        "title": "Dear Customer,"
+        }
+        ]
+    },
+    "ActivityTypes":[
+      {
+         "name" :"Survey" ,
+         "type": 0
+      },
+      {
+        "name" :"Rating" ,
+        "type": 1
+     },
+     {
+       "name" :"OpinionPoll" ,
+       "type": 5
+    },
+    {
+      "name" :"Tutorials" ,
+      "type": 7
+   },
+    {
+      "name" :"InAppMessage" ,
+      "type": 8
+    },
+    {
+      "name" :"Badges" ,
+      "type": 9
+    },
+    {
+      "name" :"ScreenTips" ,
+      "type": 10
+   },
+   {
+     "name" :"Trivia" ,
+     "type": 11
+  },
+  {
+    "name" :"WebComponent" ,
+    "type": 12
+ },
+  {
+    "name" :"MiniGame" ,
+    "type": 13
+  }
+    ],
+    "InboxSampleResponse" :
+          [
+          {
+            "activities": [
+                {
+                "actName": "Tutorials(Activity Name)",
+                "activityId": "58fae97f6d6f13526424422b58fae9c66d6f13396424422c",
+                "activityStatus": 0,
+                "tags": [
+                "tag"
+                ],
+                "taken": 0,
+                "type": 7
+                },
+                {
+                  "actName": "Tutorials second",
+                  "activityId": "58fae97f6d6f13526424422b58fae9c66d6f13396424422c",
+                  "activityStatus": 0,
+                  "tags": [
+                  "tag"
+                  ],
+                  "taken": 0,
+                  "type": 7
+                  }
+            ],
+            "name": "Tutorials(Campaign Name)"
+          },
+          {
+            "activities": [
+              {
+              "actName": "ScreenTips(Activity Name)",
+              "activityId": "58faeaa56d6f13396424422e58faeac06d6f138b6424422b",
+              "activityStatus": 0,
+              "tags": [
+              "tag"
+              ],
+              "taken": 0,
+              "type": 10
+              },
+              {
+                "actName": "Mini screen Tips",
+                "activityId": "58faeaa56d6f13396424422e58faeac06d6f138b6424422b",
+                "activityStatus": 0,
+                "tags": [
+                "tag"
+                ],
+                "taken": 0,
+                "type": 10
+                }
+            ],
+            "name": "ScreenTips(Campaign Name)"
+          }
+          ]
+}
