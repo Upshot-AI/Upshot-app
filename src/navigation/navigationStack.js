@@ -20,7 +20,7 @@ const MainStack = createStackNavigator({
   {
     headerMode: 'none',
     navigationOptions: {
-      header: null,
+      headerShown: false,
       headerVisible: false
     },
     defaultNavigationOptions: {
